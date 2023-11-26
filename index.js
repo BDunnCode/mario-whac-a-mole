@@ -14,7 +14,9 @@ function setGame() {
 
     setInterval(setMole, 1000)
     setInterval(setPiranhaPlant, 2000)
-
+=======
+window.onload = function() {
+  setGame();
 }
 
 function getRandomTile() {
@@ -27,6 +29,8 @@ function setMole() {
     currMoleTile.innerHTML = ""
   }
 
+  let mole = document.createElement("img")
+  mole.src = "./img/monty-mole.png"
 
   mole = document.createElement("img")
   mole.src = "./img/monty-mole.png"
