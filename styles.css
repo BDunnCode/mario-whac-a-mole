@@ -2,7 +2,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   text-align: center;
-  background: url("./mario-bg.jpg");
+  background: url("./img/mario-bg.jpg");
   background-size: cover;
 }
 
@@ -15,10 +15,15 @@ body {
   display: flex;
   flex-wrap: wrap;
 
-  background: url("./soil.png");
+  background: url("./img/soil.png");
   background-size: cover;
   border: 3px solid white;
   border-radius: 25px;
-  
 }
 
+#board div {
+  width: 180px;
+  height: 180px;
+  background-image: url("./img/pipe.png");
+  background-size: cover;
+}
