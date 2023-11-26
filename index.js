@@ -11,11 +11,7 @@ function setGame() {
     for (let i = 0; i < 9; i++) {
       let tile = document.createElement("div")
       tile.id = i.toString()
-      tile.addEventListener("click", () => {
-        if (this == currMoleTile) {
-        score++
-        }
-      })
+      tile.addEventListener('click', selectTile)
       document.getElementById("board").appendChild(tile)
     }
 
@@ -29,6 +25,9 @@ function getRandomTile() {
 }
 
 function setMole() {
+  if (gameOver) {
+    return
+  }
   if (currMoleTile) {
     currMoleTile.innerHTML = ""
   }
@@ -45,6 +44,10 @@ function setMole() {
 }
 
 function setPiranhaPlant() {
+  if (gameOver) {
+    return
+  }
+  
   if (currPiranhaPlantTile) {
     currPiranhaPlantTile.innerHTML = ""
   }
@@ -58,4 +61,18 @@ function setPiranhaPlant() {
   }
   currPiranhaPlantTile = document.getElementById(num)
   currPiranhaPlantTile.appendChild(piranhaPlant)
+}
+
+function selectTile() {
+  if (gameOver) {
+    return
+  }
+
+  if (this == currMoleTile) {
+    score += 10
+    document.getElementById("score").innerText = score.toString()
+  } else if (this == currPiranhaPlantTile) {
+    document.getElementById("score").innerText = "GAME OVER " + score
+    gameOver = true
+  }
 }
